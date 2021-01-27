@@ -22,4 +22,4 @@ var body = {
   "msg": ""
 }
 
-$done({body:body)});
+$done({body:JSON.stringify(body)});
