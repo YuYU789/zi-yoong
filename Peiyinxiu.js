@@ -4,3 +4,6 @@ body=body.replace(/level\":\d+/g,'level":0').replace(/is_vip\":\d+/g，'is_vip":
   
 
 $done(body);
+
+
+hostname = iosapi.peiyinxiu.com
