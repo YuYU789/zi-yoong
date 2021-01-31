@@ -1,14 +1,19 @@
-var body = $response.body;
+let url = $request.url;
+let body = JSON.parse($response.body);
 
-let url $request.url;
-const yurl = '/api/public';
+let yurl = '/api/public/';
 
-if (url.indexof(yurl) != -1) {
 
-body=body.replace(/type\":\d+/g,'type":0');
+if (url.indexOf(yurl) != -1) {
+	body=body.replace(/type\":\d+/g,'type":0');
+
+
+
+
 
 }
-  
 
-$done(body);
 
+	body = JSON.stringify(body);
+
+$done({body});
