@@ -11,7 +11,8 @@ ios破解
 
 #鲍鱼盒子🚗
 
-^http[s]?:\/\/.+\/api(\/video\/report_item?|\/live\/room\/detail?|\/video\/related?|\/video\/detail|\/social\/posts_info).*$ url script-request-header https://raw.githubusercontent.com/gjwj666/qx/main/baoyu.js
+^http[s]?:\/\/.+\/api(\/video\/report_item?|\/live\/room\/detail?|\/video\/related?|\/video\/detail|\/social\/posts_info).*$ url script-request-header https://raw.githubusercontent.com/YuYU789/zi-yoong/main/baoyu.js
+
 
 [mitm]
 hostname = 42.157.*.*
