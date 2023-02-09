@@ -12,10 +12,10 @@
 *******************************
 [rewrite_local]
 # > 茄子云盘解锁会员
-^https?:\/\/47\.96\.97\.172:9293\/api\/ios\/getAdClick$ url script-response-body https://raw.githubusercontent.com/YuYU789/zi-yoong/main/qiezi.js
+^https?:\/\/121\.41\.115\.149:9293\/api\/ios\/getAdClick$ url script-response-body https://raw.githubusercontent.com/YuYU789/zi-yoong/main/qiezi.js
 
 [mitm] 
-hostname = 47.96.97.172:9293
+hostname = 121.41.115.149:9293
 
 *******************************/
 
