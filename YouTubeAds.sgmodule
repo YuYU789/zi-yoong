@@ -18,20 +18,4 @@ URL-REGEX,https?:\/\/[\w-]+\.googlevideo\.com\/.+&(oad|ctier),REJECT
 
 
 [Script]
-http-response,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.js,pattern=^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting),max-size=131072,requires-body=true,timeout=10,script-update-interval=0,enable=true
-
-[URL Rewrite]
-^https?+:\/\/.+?\.googlevideo\.com\/.+?(?>&oad|ctier) - reject-200
-^https?+:\/\/\w+?\.youtube\.com\/api\/.+?ad - reject-200
-^https?+:\/\/\w+?\.youtube\.com\/p(?>agead|tracking) - reject-200
-^https?+:\/\/youtubei\.googleapis\.com\/youtubei\/.+?(?>ad|log)_ - reject-200
-
-(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) url 302 $1$2$3
-^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad url reject-200
-
-^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads url reject-200
-^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) url reject-200
-^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext url reject-200
-
-[MITM]
-hostname = %APPEND% *.googlevideo.com, *.youtube.com, youtubei.googleapis.com, -redirector*.googlevideo.com, *.googlevideo.com, www.youtube.com, s.youtube.com, youtubei.googleapis.com
+http-response,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.js,pattern=^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting),max-size=131072,requires-body=true
