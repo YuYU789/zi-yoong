@@ -1,30 +1,19 @@
 #!name=YouTube
 #!desc=YouTube去广告
 #！shadowrockt=2.22可用
-[Rule]
-URL-REGEX,https?:\/\/.+.googlevideo.com\/ptracking\?pltype=adhost,REJECT
-URL-REGEX,https?:\/\/.+.youtube.com\/api\/stats\/ads,REJECT
-URL-REGEX,https?:\/\/.+.youtube.com\/get_midroll_,REJECT
-URL-REGEX,https?:\/\/.+.youtube.com\/pagead\/,REJECT
-URL-REGEX,https?:\/\/.+.youtube.com\/ptracking\?,REJECT
-URL-REGEX,https?:\/\/.+.youtube.com\/_get_ads,REJECT
-URL-REGEX,https?:\/\/premiumyva.appspot.com\/vmclickstoadvertisersite,REJECT
-URL-REGEX,https?:\/\/s0.2mdn.net\/ads\/,REJECT
-URL-REGEX,https?:\/\/stats.tubemogul.com\/stats\/,REJECT
-URL-REGEX,https?:\/\/youtubei.googleapis.com\/.+ad_break,REJECT
-URL-REGEX,https?:\/\/youtubei.googleapis.com\/youtubei\/.+(ad|log),REJECT
-URL-REGEX,https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adformat,REJECT
-URL-REGEX,https?:\/\/[\w-]+\.googlevideo\.com\/.+&(oad|ctier),REJECT
 
-URL-REGEX,(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+)$1$2$3,REJECT-200
-URL-REGEX,^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad,REJECT-200
-URL-REGEX,^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads,REJECT-200
-URL-REGEX,^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking),REJECT-200
-URL-REGEX,^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext,REJECT-200
+[URL Rewrite]
 
-[Script]
-http-response,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.js,pattern=^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting),max-size=131072,requires-body=true
+# ======= 视频广告请求 ======= #
+(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 302
+^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad - reject-200
+# ======= 通用广告请求 ======= #
+^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads - reject-200
+^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) - reject-200
+^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext - reject-200
+
+
 
 [MITM]
-hostname = %APPEND% -redirector *.googlevideo.com,*.googlevideo.com,www.youtube.com,s.youtube.com,youtubei.googleapis.com
 
+hostname = %APPEND% -redirector*.googlevideo.com,*.googlevideo.com,www.youtube.com,s.youtube.com,youtubei.googleapis.com
