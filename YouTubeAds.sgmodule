@@ -1,7 +1,7 @@
-#!name=YouTube
-#!desc=YouTube去广告
-#！shadowrockt=2.22可用
 
+#！shadowrockt=2.22可用
+#!name = YouTube去广告
+#!desc =支持pip，后台播放
 [URL Rewrite]
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad _ REJECT-IMG
 # ======= 视频广告请求 ======= #
